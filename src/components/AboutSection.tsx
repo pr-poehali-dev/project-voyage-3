@@ -2,12 +2,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle2, Sparkles } from "lucide-react"
 
 const values = [
-  { title: "Качество материалов", description: "Используем только проверенные профессиональные материалы для долгосрочной защиты" },
-  { title: "Полная разборка", description: "Демонтируем пластик и локера для обработки всех скрытых поверхностей" },
-  { title: "Активная пена Grass", description: "Профессиональная химия для идеальной очистки перед нанесением антикора" },
-  { title: "Индивидуальный подход", description: "Каждый автомобиль — отдельный случай, оцениваем состояние и подбираем решение" },
-  { title: "Прозрачность", description: "Фотоотчёт на всех этапах работы — вы видите за что платите" },
-  { title: "Гарантия результата", description: "Работаем на подъёмнике, обрабатываем все труднодоступные зоны без исключений" },
+  { title: "Быстро — 2-3 дня", description: "Весь процесс работ с вашим автомобилем займёт всего 2-3 дня. Вы не останетесь надолго без машины." },
+  { title: "Гарантия качества", description: "Мы несём ответственность за каждый этап обработки и гарантируем качество выполненных работ." },
+  { title: "Доступное расположение", description: "К нам приезжают клиенты из разных городов — удобный подъезд и комфортное расположение в п. г. т. Панковка." },
+  { title: "Цена ниже конкурентов", description: "Доступная цена для любого автовладельца. Мы предлагаем профессиональное качество по честной стоимости — ниже, чем у конкурентов." },
+  { title: "Пескоструй + полный разбор", description: "Мы используем пескоструйную обработку с полным разбором днища, прежде чем наносить защитный состав. Никаких компромиссов." },
+  { title: "Фотоотчёт клиенту", description: "Фотоотчёт на всех этапах работы — вы видите за что платите и как выглядит ваш автомобиль изнутри." },
 ]
 
 const stats = [
@@ -27,12 +27,12 @@ export function AboutSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
             <Sparkles className="h-4 w-4" />
-            О Black Save 53
+            Наши преимущества
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Защита, которая{" "}
+            Почему нужно записаться{" "}
             <span className="text-primary relative">
-              работает
+              именно к нам
               <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
                 <path d="M0 4C50 2 150 6 200 4" stroke="currentColor" strokeWidth="2" className="text-primary" />
               </svg>
