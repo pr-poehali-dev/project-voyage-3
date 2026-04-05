@@ -36,9 +36,6 @@ export function Navbar() {
             <a href="#process" className="text-sm font-medium hover:text-primary transition-colors">
               Процесс
             </a>
-            <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Цены
-            </a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
               Контакты
             </a>

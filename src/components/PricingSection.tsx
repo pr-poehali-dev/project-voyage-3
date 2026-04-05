@@ -1,122 +1,33 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Phone } from "lucide-react"
 
-const pricingTiers = [
-  {
-    name: "Лёгковой автомобиль",
-    price: "По запросу",
-    features: [
-      "Демонтаж пластика и локеров",
-      "Мойка с активной пеной Grass",
-      "Антикоррозийная обработка днища",
-      "Обработка арок и скрытых полостей",
-      "Фотоотчёт клиенту",
-      "Полная сборка автомобиля",
-    ],
-    highlighted: false,
-  },
-  {
-    name: "Внедорожник / кроссовер",
-    price: "По запросу",
-    features: [
-      "Демонтаж пластика и локеров",
-      "Мойка с активной пеной Grass",
-      "Пескоструй при наличии коррозии",
-      "Эпоксидный грунт",
-      "Полная антикоррозийная обработка",
-      "Обработка рамы изнутри",
-      "Фотоотчёт клиенту",
-      "Полная сборка автомобиля",
-    ],
-    highlighted: true,
-  },
-  {
-    name: "Дополнительно",
-    price: "По запросу",
-    features: [
-      "Шумоизоляция арок",
-      "Пескоструй очагов коррозии",
-      "Покрытие эпоксидным грунтом",
-      "Обработка элементов подвески",
-      "Индивидуальная консультация",
-    ],
-    highlighted: false,
-  },
-]
-
-export function PricingSection() {
+export function ContactBanner() {
   return (
-    <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            Стоимость работ
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance">
-            Выберите <span className="text-primary">вид обработки</span> для вашего автомобиля
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Стоимость рассчитывается индивидуально — позвоните нам для уточнения цены
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pricingTiers.map((tier, index) => (
-            <Card
-              key={index}
-              className={`relative group ${
-                tier.highlighted
-                  ? "border-primary shadow-xl scale-105 bg-gradient-to-b from-background to-primary/5"
-                  : "hover:border-primary/50 hover:shadow-lg"
-              } transition-all duration-300`}
-            >
-              {tier.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary/80 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                  Популярный
-                </div>
-              )}
-              <CardHeader className="text-center pb-8">
-                <CardTitle className="text-2xl mb-2">{tier.name}</CardTitle>
-                <div className="mt-4">
-                  <span className="text-3xl font-bold text-primary">{tier.price}</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3 group/item">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
-                      <span className="text-sm leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  className={`w-full ${tier.highlighted ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20" : ""}`}
-                  variant={tier.highlighted ? "default" : "outline"}
-                  asChild
-                >
-                  <a href="tel:+79021488601">Записаться</a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground">
-            Точная стоимость определяется после{" "}
-            <span className="text-primary font-semibold">осмотра автомобиля</span> — звоните, проконсультируем бесплатно
-          </p>
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <div className="container mx-auto max-w-3xl text-center">
+        <p className="text-xl sm:text-2xl font-medium leading-relaxed mb-8">
+          Все вопросы вы можете обсудить с нами в нашей группе{" "}
+          <span className="text-primary font-bold">ВКонтакте</span> или по номерам телефонов, указанных на данном сайте.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            size="lg"
+            className="bg-[#0077FF] hover:bg-[#0060CC] text-white font-bold px-8 gap-3"
+            asChild
+          >
+            <a href="https://vk.ru/blacksave53rus" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.726-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C5.16 11.317 4.46 9.143 4.46 8.67c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.999c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.743c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.474-.085.712-.559.712z"/>
+              </svg>
+              Написать ВКонтакте
+            </a>
+          </Button>
+          <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold px-8 gap-2" asChild>
+            <a href="tel:+79021488601">
+              <Phone className="h-5 w-5" />
+              Позвонить нам
+            </a>
+          </Button>
         </div>
       </div>
     </section>
