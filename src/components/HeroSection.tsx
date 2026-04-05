@@ -49,6 +49,16 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto text-center max-w-5xl relative z-10">
+        <div className="flex justify-center mb-6 animate-fade-in-up">
+          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-primary shadow-xl shadow-primary/30">
+            <img
+              src="https://cdn.poehali.dev/projects/af224fa8-a4c1-42a4-a12b-c95683f96ae3/bucket/daf99bd5-2974-4ce8-9ff8-676377c3ef8c.jpg"
+              alt="Black Save 53"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-in-up">
           <Sparkles className="w-4 h-4 text-primary" />
           <span className="text-sm font-medium text-primary">Профессиональная защита автомобиля в Великом Новгороде</span>
