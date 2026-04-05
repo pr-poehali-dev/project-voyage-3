@@ -37,10 +37,19 @@ export function Footer() {
 
           <div>
             <h4 className="font-semibold mb-3">Адрес</h4>
-            <div className="flex items-start gap-2 text-sm text-muted-foreground">
+            <div className="flex items-start gap-2 text-sm text-muted-foreground mb-4">
               <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
               <span>Промышленная ул., 15А,<br />п. г. т. Панковка, 173526</span>
             </div>
+            <h4 className="font-semibold mb-2">Мы ВКонтакте</h4>
+            <a
+              href="https://vk.ru/blacksave53rus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-[#0077FF] hover:text-[#0060CC] transition-colors font-medium"
+            >
+              vk.ru/blacksave53rus
+            </a>
           </div>
         </div>
 
