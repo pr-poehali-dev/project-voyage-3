@@ -1,32 +1,8 @@
-import type React from "react"
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Phone, MapPin, Camera, Users } from "lucide-react"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("[v0] Form submitted:", formData)
-    // Handle form submission
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
-  }
-
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
       <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -38,134 +14,121 @@ export function ContactSection() {
             Контакты
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Давайте <span className="text-primary">создавать вместе</span>
+            Записаться на <span className="text-primary">обработку</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Готовы воплотить ваши цифровые амбиции? Свяжитесь с нами без обязательств и узнайте, чем мы можем помочь.
+            Готовы защитить ваш автомобиль? Свяжитесь с нами любым удобным способом — ответим быстро!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <Card className="border-none shadow-xl bg-background">
-              <CardHeader>
-                <CardTitle className="text-2xl">Напишите нам</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Имя *
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Ваше имя"
-                        required
-                        className="transition-all focus:scale-[1.02]"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        E-mail *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.ru"
-                        required
-                        className="transition-all focus:scale-[1.02]"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium">
-                      Телефон
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+7 900 123-45-67"
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Сообщение *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Расскажите о вашем проекте..."
-                      rows={6}
-                      required
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <Button type="submit" size="lg" className="w-full sm:w-auto group">
-                    <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    Отправить
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+        <div className="flex flex-col items-center gap-6 mb-12">
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-white font-bold px-12 py-7 text-xl shadow-lg shadow-primary/30 hover:shadow-xl transition-all"
+            asChild
+          >
+            <a href="tel:+79021488601">Записаться</a>
+          </Button>
+          <p className="text-white text-lg font-medium">Вы можете связаться с нами!</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-16">
+          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+            <CardContent className="p-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1 text-sm text-muted-foreground">Антонов Владислав Владимирович</h3>
+                  <a href="tel:+79021488601" className="text-primary font-bold text-lg hover:underline">
+                    +7 902 148-86-01
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+            <CardContent className="p-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1 text-sm text-muted-foreground">Николаев Кирилл Алексеевич</h3>
+                  <a href="tel:+79539009051" className="text-primary font-bold text-lg hover:underline">
+                    +7 953 900-90-51
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Технологический процесс */}
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+              Как мы работаем
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+              Технологический процесс <span className="text-primary">обработки</span>
+            </h3>
           </div>
 
-          <div className="space-y-6">
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">E-mail</h3>
-                    <p className="text-sm text-muted-foreground">hello@example.com</p>
-                  </div>
+          <Card className="border border-primary/20 shadow-xl bg-background overflow-hidden mb-6">
+            <CardContent className="p-8">
+              <ul className="space-y-4">
+                {[
+                  "Автомобиль разбирается снизу",
+                  "Демонтируется защитный пластик",
+                  "Демонтируются защитные локера арок",
+                  "Тщательная мойка автомобиля на подъёмнике с применением активной пены Grass (днище, пороги, арки, скрытые полости, рама изнутри)",
+                  "При наличии коррозии — пескоструй очагов коррозии",
+                  "Покрытие эпоксидным грунтом",
+                  "Антикоррозийная обработка автомобиля (арки, днище, скрытые полости, элементы подвески)",
+                  "После сушки автомобиль полностью собирается",
+                ].map((step, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+                      {i + 1}
+                    </div>
+                    <span className="text-base leading-relaxed pt-1">{step}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Card className="border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group bg-background">
+              <CardContent className="p-6 text-center">
+                <div className="inline-flex p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-3">
+                  <Users className="h-6 w-6" />
                 </div>
+                <h4 className="font-bold mb-1">Доп. услуга</h4>
+                <p className="text-muted-foreground text-sm">Шумоизоляция арок</p>
               </CardContent>
             </Card>
 
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Телефон</h3>
-                    <p className="text-sm text-muted-foreground">+7 900 123-45-67</p>
-                  </div>
+            <Card className="border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group bg-background">
+              <CardContent className="p-6 text-center">
+                <div className="inline-flex p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-3">
+                  <MapPin className="h-6 w-6" />
                 </div>
+                <h4 className="font-bold mb-1">Индивидуальный подход</h4>
+                <p className="text-muted-foreground text-sm">К каждому автомобилю</p>
               </CardContent>
             </Card>
 
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Время работы</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Пн - Пт: 9:00 - 18:00
-                      <br />
-                      Выходные: по договоренности
-                    </p>
-                  </div>
+            <Card className="border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group bg-background">
+              <CardContent className="p-6 text-center">
+                <div className="inline-flex p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-3">
+                  <Camera className="h-6 w-6" />
                 </div>
+                <h4 className="font-bold mb-1">Фотоотчёт</h4>
+                <p className="text-muted-foreground text-sm">Для каждого клиента</p>
               </CardContent>
             </Card>
           </div>
