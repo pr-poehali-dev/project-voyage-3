@@ -1,42 +1,45 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
-import { QuoteFormDialog } from "@/components/QuoteFormDialog"
+import { Button } from "@/components/ui/button"
 
 const pricingTiers = [
   {
-    name: "Базовый",
-    price: "99 900",
+    name: "Лёгковой автомобиль",
+    price: "По запросу",
     features: [
-      "До 5 страниц",
-      "Адаптивный дизайн",
-      "Базовая SEO-оптимизация",
-      "Форма обратной связи",
-      "1 месяц поддержки",
+      "Демонтаж пластика и локеров",
+      "Мойка с активной пеной Grass",
+      "Антикоррозийная обработка днища",
+      "Обработка арок и скрытых полостей",
+      "Фотоотчёт клиенту",
+      "Полная сборка автомобиля",
     ],
     highlighted: false,
   },
   {
-    name: "Про",
-    price: "249 900",
+    name: "Внедорожник / кроссовер",
+    price: "По запросу",
     features: [
-      "До 15 страниц",
-      "Премиум-дизайн",
-      "Расширенная SEO-оптимизация",
-      "Интеграция CMS",
-      "Функционал e-commerce",
-      "3 месяца поддержки",
+      "Демонтаж пластика и локеров",
+      "Мойка с активной пеной Grass",
+      "Пескоструй при наличии коррозии",
+      "Эпоксидный грунт",
+      "Полная антикоррозийная обработка",
+      "Обработка рамы изнутри",
+      "Фотоотчёт клиенту",
+      "Полная сборка автомобиля",
     ],
     highlighted: true,
   },
   {
-    name: "Индивидуальный",
+    name: "Дополнительно",
     price: "По запросу",
     features: [
-      "Неограниченно страниц",
-      "Кастомный функционал",
-      "API-интеграции",
-      "Персональный менеджер",
-      "6 месяцев поддержки",
+      "Шумоизоляция арок",
+      "Пескоструй очагов коррозии",
+      "Покрытие эпоксидным грунтом",
+      "Обработка элементов подвески",
+      "Индивидуальная консультация",
     ],
     highlighted: false,
   },
@@ -57,13 +60,13 @@ export function PricingSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Прозрачные цены
+            Стоимость работ
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance">
-            Выберите <span className="text-primary">идеальный тариф</span> для вашего проекта
+            Выберите <span className="text-primary">вид обработки</span> для вашего автомобиля
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            От стартапов до крупного бизнеса — у нас есть подходящее решение
+            Стоимость рассчитывается индивидуально — позвоните нам для уточнения цены
           </p>
         </div>
 
@@ -78,24 +81,14 @@ export function PricingSection() {
               } transition-all duration-300`}
             >
               {tier.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary/80 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
                   Популярный
                 </div>
               )}
               <CardHeader className="text-center pb-8">
                 <CardTitle className="text-2xl mb-2">{tier.name}</CardTitle>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">
-                    {tier.price === "По запросу" ? (
-                      <span className="text-3xl">{tier.price}</span>
-                    ) : (
-                      <>
-                        <span className="text-lg font-normal text-muted-foreground">от </span>
-                        {tier.price}
-                        <span className="text-lg font-normal text-muted-foreground"> ₽</span>
-                      </>
-                    )}
-                  </span>
+                  <span className="text-3xl font-bold text-primary">{tier.price}</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -107,13 +100,13 @@ export function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <QuoteFormDialog
-                  packageName={tier.name}
+                <Button
+                  className={`w-full ${tier.highlighted ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20" : ""}`}
                   variant={tier.highlighted ? "default" : "outline"}
-                  className={`w-full ${tier.highlighted ? "shadow-lg shadow-primary/20" : ""}`}
+                  asChild
                 >
-                  {tier.price === "По запросу" ? "Связаться с нами" : "Выбрать тариф"}
-                </QuoteFormDialog>
+                  <a href="tel:+79021488601">Записаться</a>
+                </Button>
               </CardContent>
             </Card>
           ))}
@@ -121,8 +114,8 @@ export function PricingSection() {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
-            Все тарифы включают <span className="text-primary font-semibold">бесплатную настройку хостинга</span> и{" "}
-            <span className="text-primary font-semibold">SSL-сертификат</span>
+            Точная стоимость определяется после{" "}
+            <span className="text-primary font-semibold">осмотра автомобиля</span> — звоните, проконсультируем бесплатно
           </p>
         </div>
       </div>
